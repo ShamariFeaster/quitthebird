@@ -1,0 +1,268 @@
+<html lang="en"><head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/984/984199.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/984/984199.png">
+
+<link rel="mask-icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/984/984199.png" color="#111">
+
+
+  <title>WhereAmINow.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  
+<style>
+@import 'https://fonts.googleapis.com/css?family=Libre+Franklin:100,300,400,600,700,900';
+/* -----------------------
+  Presentational stuff 
+----------------------- */
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  background: #111922;
+}
+h1 {
+  font-weight: 900;
+  color: #ff8d00;
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+/* -----------------------
+  Form 
+----------------------- */
+.form-control {
+  border-radius: 0;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+.form-group > label {
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #a1a2a3;
+  transform-origin: 0 0;
+  transform: scale(1.4);
+  pointer-events: none;
+  position: relative;
+  z-index: 5;
+}
+.form-group > input {
+  width: 100%;
+}
+.form-group > label {
+  transition: transform 0.4s;
+  transform-origin: 0 0;
+  transform: scale(1.4) translateY(20px);
+}
+.form-group.not-empty > label {
+  transform: none;
+}
+/*------------------------------
+	Form
+------------------------------*/
+.form-control {
+  border: 0;
+  border-bottom: 1px solid #a1a2a3;
+}
+.form-control,
+.form-control:focus,
+.form-control:focus:hover {
+  color: #ff8d00;
+  background: none;
+  outline: none;
+}
+.form-control:focus,
+.form-control:focus:hover {
+  border-bottom: 1px solid #ff8d00;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+<script>
+if (document.location.search.match(/type=embed/gi)) {
+window.parent.postMessage("resize", "*");
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="Templar/build/TemplarJS-0.11.min.js"></script>
+
+<script>
+
+Templar.Route([
+
+{
+    route : '#/about',
+    target : '#after-main',
+    partial : 'partial-about.html'
+},
+{
+    route : '#/instructions',
+    target : '#after-main',
+    partial : 'partial-instructions.html'
+},
+{
+    route : '#/code',
+    target : '#after-main',
+    partial : 'partial-code.html'
+},
+{
+    route : '#/home',
+    target : '#after-main',
+    partial : 'partial-clear.html'
+}]);
+
+</script>
+!---->
+</head>
+
+<body translate="no">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#/home">Where Am I Now?</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/instructions">Instructions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/code">Code</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/findfollows">Find people you follow</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div id="main-content">
+      <div class="container mt-5">
+          <div class="row">
+            <div class="col-md-5 d-flex align-items-center">
+              <h1>Let your followers know your Mastadon handle</h1>
+            </div>
+            <div class="col-md-6 offset-md-1">
+              <form class="mt-4 mt-md-0">
+                <div class="form-group">
+                  <label for="name">Twitter Name</label>
+                  <input class="form-control" id="twitter-name" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="surname">Mastadon Name</label>
+                  <input class="form-control" id="mastadon-name" type="text">
+                </div>
+                <div class="form-group">
+                  <button type="button" id="saveBtn" class="btn btn-info">Save</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="after-main"></div>
+
+<div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Usernames Saved</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Enjoy Mastadon!!
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+$('#saveBtn').click(function(){
+    console.log('save');
+    const toastLiveExample = document.getElementById('liveToast');
+    const toast = new bootstrap.Toast(toastLiveExample);
+    var tname = $('#twitter-name').val(),
+        mname = $('#mastadon-name').val();
+    
+    //if url input, strip all but uname
+    if(tname.indexOf('/') > -1){
+        console.log('tname isUrl');
+        tname = tname.substring(tname.lastIndexOf('/')+1);
+    }
+    
+    if(mname.indexOf('/') > -1){
+        console.log('mname isUrl');
+        mname = mname.substring(mname.lastIndexOf('/')+1);
+    }
+    
+    $.ajax('db.php', {
+        dataType : 'json',
+        data : {twitter : tname, mastadon : mname},
+        success : function(data,status,xhr){
+            if(data.db_response == true){
+                console.log(data.db_response);
+                toast.show();
+            }
+            console.log(data);
+        },
+        error : function(jqXhr, textStatus, errorMessage){
+        }
+    });
+});
+
+</script>
+
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  
+
+      <script id="rendered-js">
+$(() => {
+
+  $('.form-group').each((i, e) => {
+    $('.form-control', e).
+    focus(function () {
+      e.classList.add('not-empty');
+    }).
+    blur(function () {
+      this.value === '' ? e.classList.remove('not-empty') : null;
+    });
+
+  });
+
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+
+
+
+
+ 
+</body></html>
